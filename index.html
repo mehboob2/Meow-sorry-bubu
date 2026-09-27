@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Last Sorry — An Interactive Apology Story</title>
+<meta name="theme-color" content="#0b0b12">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="particles"></canvas>
+<div class="noise"></div>
+<div id="toast"></div>
+
+<main id="app">
+  <header class="topbar">
+    <div class="brand"><span class="dot"></span> THE LAST SORRY</div>
+    <div class="progress"><span id="progressFill"></span></div>
+    <div class="chapter" id="chapterLabel">01 / 12</div>
+  </header>
+
+  <section class="screen active" data-screen="0">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">A little experience, made with a lot of regret.</p>
+        <h1>Ek message bhej sakta tha.<br><em>Par tum usse zyada deserve karti ho.</em></h1>
+        <p class="lead">Jaanu, ye website tumhe manaane ke liye nahi bani. Ye sirf meri taraf se ek honest pause hai — jahan main excuses ko side mein rakh kar tumhari feelings ko pehle rakhta hoon.</p>
+        <button class="primary" data-next>Start the apology <span>→</span></button>
+        <p class="micro">No photos · No music · No pressure · Just words, choices &amp; a little heart.</p>
+      </div>
+      <div class="character-stage"><div class="moon"></div><div class="chibi" id="chibi"><div class="hair"></div><div class="face"><i class="eye e1"></i><i class="eye e2"></i><span class="mouth"></span><span class="blush b1"></span><span class="blush b2"></span></div><div class="body"></div><div class="arm a1"></div><div class="arm a2"></div><div class="leg l1"></div><div class="leg l2"></div><div class="heart-held">♥</div></div><div class="floor"></div><div class="caption">He brought no gift.<br><b>He brought accountability.</b></div></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="1"><div class="split"><div class="chapter-art mirror-art"><div class="mirror"></div><div class="reflection"></div><span>LOOK CLOSER</span></div><div class="copy"><p class="eyebrow">01 — The mirror</p><h2>Aaj pehle tumse nahi,<br><em>khud se baat.</em></h2><p>Maine bahut baar socha ki “sorry” bol doon aur sab normal ho jayega. Lekin sach ye hai ki ek word kisi hurt ko erase nahi karta. Isliye aaj main pehle khud se pooch raha hoon: <b>kya main better kar sakta tha?</b></p><p>Haan. Main sun sakta tha. Main thoda ruk sakta tha. Main tumhari side ko samajhne ki koshish kar sakta tha. Aur agar tum hurt hui, toh tumhari feeling ko “overreaction” kehne ke bajaye us feeling ko samajhna chahiye tha.</p><button class="primary" data-next>Yes, I should have done better →</button></div></div></section>
+
+  <section class="screen" data-screen="2"><div class="copy center"><p class="eyebrow">02 — The reconstruction</p><h2>Broken cheez ko words nahi,<br><em>pieces se samjho.</em></h2><p>In seven pieces ko heart mein drag/tap karke place karo. Har piece ek cheez represent karta hai jo relationship ko safe banati hai.</p><div class="pieces" id="pieces"></div><div class="heart-board" id="heartBoard"><span>♥</span></div><p class="status" id="pieceStatus">0 / 7 placed</p></div></section>
+
+  <section class="screen" data-screen="3"><div class="copy center"><p class="eyebrow">03 — The unsent messages</p><h2>Maine type kiya.<br><em>Phir delete kar diya.</em></h2><div class="phone"><div class="phone-head">Jaanu · private draft</div><div id="draft" class="draft"> </div><div class="typing-dot">● ● ●</div></div><button class="primary hidden" id="draftNext" data-next>Send the honest version →</button></div></section>
+
+  <section class="screen" data-screen="4"><div class="copy center"><p class="eyebrow">04 — The question</p><h2>Agar main saamne hota,<br><em>tum kya kehti?</em></h2><p>Yahan koi wrong answer nahi hai. Choose the feeling that deserves to be heard first.</p><div class="choice-grid"><button data-choice="hurt">“Mujhe hurt hua.”</button><button data-choice="angry">“Mujhe gussa aaya.”</button><button data-choice="sad">“Mujhe bura laga.”</button><button data-choice="space">“Mujhe thoda space chahiye.”</button></div><div class="response" id="choiceResponse"></div></div></section>
+
+  <section class="screen" data-screen="5"><div class="copy center"><p class="eyebrow">05 — The heart meter</p><h2>Forgiveness ka meter nahi.<br><em>Effort ka meter.</em></h2><div class="meter"><div class="meter-fill" id="meterFill"></div></div><div class="meter-num" id="meterNum">00%</div><p>Har tap ek promise ko action ke closer le jayega.</p><button class="primary" id="effortBtn">Add genuine effort +10</button></div></section>
+
+  <section class="screen" data-screen="6"><div class="copy center"><p class="eyebrow">06 — The promise vault</p><h2>Six promises.<br><em>Zero dramatic claims.</em></h2><div class="vault" id="vault"></div><button class="primary hidden" id="vaultNext" data-next>Continue →</button></div></section>
+
+  <section class="screen" data-screen="7"><div class="split reverse"><div class="copy"><p class="eyebrow">07 — If I could go back</p><h2>Past ko edit nahi kar sakta.<br><em>Future ko kar sakta hoon.</em></h2><p>Timeline ko move karo. Har stop par ek honest realization milega.</p><input id="timeline" type="range" min="0" max="4" value="0"><div class="timeline-labels"><span>That moment</span><span>After</span><span>Tonight</span><span>Tomorrow</span><span>Future</span></div><div class="timeline-card" id="timelineCard">Agar us moment par main ek second rukta, shayad cheez alag hoti.</div><button class="primary" data-next>Keep going →</button></div><div class="chapter-art clock-art"><div class="clock"><i></i><b></b><span>11:59</span></div></div></div></section>
+
+  <section class="screen" data-screen="8"><div class="copy center"><p class="eyebrow">08 — The apology book</p><h2>Turn the page.<br><em>Not the blame.</em></h2><div class="book"><div class="book-page"><small id="pageNo">PAGE 1 / 5</small><h3 id="bookTitle"></h3><p id="bookText"></p></div><button class="page-btn" id="prevPage">‹</button><button class="page-btn right" id="nextPage">›</button></div><button class="primary" data-next>Close the book →</button></div></section>
+
+  <section class="screen" data-screen="9"><div class="copy center"><p class="eyebrow">09 — The little vault</p><h2>One locked note.<br><em>One tiny secret.</em></h2><div class="lock"><div class="shackle"></div><div class="lockbox">♥</div></div><p>Hint: password is the word I never want you to doubt.</p><div class="pass"><input id="password" placeholder="type the word…"><button id="unlock">Unlock</button></div><div id="secret" class="secret"></div></div></section>
+
+  <section class="screen" data-screen="10"><div class="copy center"><p class="eyebrow">10 — The letter</p><h2>Open when you're ready.</h2><div class="envelope" id="envelope"><div class="env-back"></div><div class="letter"><p>Jaanu,</p><p>main tumse perfect banne ka promise nahi karunga, kyunki main perfect hoon hi nahi. Main bas itna promise kar sakta hoon ki jab meri wajah se tum hurt ho, main apne ego ko tumhari feelings se bada nahi banaunga.</p><p>I'm sorry — sirf isliye nahi ki tum upset hui, balki isliye ki meri taraf se tumhe woh care aur understanding nahi mili jo tum deserve karti thi.</p><p>Agar trust ko time chahiye, time. Agar baat karni ho, main sununga. Agar thoda space chahiye, main respect karunga. Aur agar kabhi tum mujhe better hote dekhna chaho, main words se zyada actions se dikhana chahta hoon.</p><p class="sign">— tumhara sorry wala idiot ♥</p></div><div class="flap"></div></div><button class="primary" id="openLetter">Open the letter</button></div></section>
+
+  <section class="screen finale" data-screen="11"><div class="finale-inner"><div class="ring">♥</div><p class="eyebrow">THE LAST SORRY</p><h2>Sorry, jaanu.</h2><p class="final-text">Agar ek apology se sab kuch instantly perfect ho jata, toh shayad sorry ka matlab hi chhota hota. Main tumse perfection nahi maang raha. Main bas apni galti ko acknowledge kar raha hoon, tumhari feelings ko respect kar raha hoon, aur apne actions ko better karne ki responsibility accept kar raha hoon.</p><p class="final-text">Tumhe abhi jo feel karna hai, woh feel kar sakti ho. Tumhe time chahiye toh time. Tumhe baat karni hai toh baat. Tumhe bas ye page close karna hai toh woh bhi okay. Ye experience tumhe pressure dene ke liye nahi tha — bas ek honest “I'm sorry” tum tak pahunchane ke liye tha.</p><h3>And one last line…</h3><div class="final-reveal">I am genuinely sorry. <span>♥</span></div><button class="ghost" id="restart">Replay the journey</button></div><div id="heartRain"></div></section>
+</main>
+<script src="script.js"></script>
+</body></html>
